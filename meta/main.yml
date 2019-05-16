@@ -1,0 +1,25 @@
+galaxy_info:
+  role_name: consul
+  author: solutionDrive GmbH
+  description: Installs consul from https://consul.io/
+  company: solutionDrive GmbH
+
+  license: MIT
+
+  min_ansible_version: 1.2
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - xenial
+    - name: Debian
+      versions:
+        - stretch
+        - jessie
+
+  galaxy_tags:
+    - consul
+    - hashicorp
+
+dependencies: []
