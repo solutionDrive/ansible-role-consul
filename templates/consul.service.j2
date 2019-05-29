@@ -1,0 +1,13 @@
+[Unit]
+Description=consul
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+User={{ consul_user }}
+Restart=on-failure
+ExecStart={{ consul_exec_path }}/consul server $OPTIONS
+ExecStop={{ consul_exec_path }}/consul operator step-down
+
+[Install]
+WantedBy=multi-user.target

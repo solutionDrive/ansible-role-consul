@@ -1,0 +1,17 @@
+---
+- name: "Install required packages"
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ consul_required_packages }}"
+
+- name: "Ensure group '{{ consul_group }}' exists"
+  group:
+    name: "{{ consul_group }}"
+    state: present
+
+- name: "Add the user '{{ consul_user }}' with no bash shell, set the group '{{ consul_group }}' as primary group"
+  user:
+    name: "{{ consul_user }}"
+    shell: /bin/false
+    group: "{{ consul_group }}"
