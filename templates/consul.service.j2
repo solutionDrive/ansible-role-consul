@@ -6,7 +6,7 @@ After=network-online.target
 [Service]
 User={{ consul_user }}
 Restart=on-failure
-ExecStart={{ consul_exec_path }}/consul server $OPTIONS
+ExecStart={{ consul_exec_path }}/consul server $OPTIONS -config={{ consul_configuration_path }}/config.hcl
 ExecStop={{ consul_exec_path }}/consul operator step-down
 
 [Install]

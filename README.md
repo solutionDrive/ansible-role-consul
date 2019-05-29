@@ -73,6 +73,14 @@ Path which should be used to store configurations for consul
     
 Temporary download location which will be used to download the application
 
+    consul_configuration_bootstrap
+    
+Should this consul installation a bootstrap installation or not
+
+    consul_configuration_server
+    
+Should this consul installation a server installation or not
+
 Dependencies
 ------------
 

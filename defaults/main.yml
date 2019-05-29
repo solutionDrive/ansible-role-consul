@@ -21,3 +21,6 @@ consul_app_url: '{{consul_app_mirror}}/{{consul_app}}/{{consul_app_version}}/{{c
 consul_configuration_path: /etc/consul
 
 consul_app_download_location: /tmp/
+
+consul_configuration_bootstrap: false
+consul_configuration_server: true
