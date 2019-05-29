@@ -12,4 +12,4 @@
     dest: "{{ consul_exec_path }}"
     mode: "u+rwx"
     owner: "{{ consul_user }}"
-    creates: ""{{ consul_exec_path }}/consul"
+    creates: "{{ consul_exec_path }}/consul"
