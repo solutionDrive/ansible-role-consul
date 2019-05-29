@@ -1,0 +1,23 @@
+---
+consul_required_packages:
+  - unzip
+
+consul_user: 'consul'
+consul_group: 'consul'
+
+consul_app_mirror: 'https://releases.hashicorp.com'
+consul_app_platform: 'linux_amd64'
+consul_app_install_dir: '/opt/consul'
+consul_exec_path: '/usr/local/bin'
+
+consul_app: consul
+consul_app_version: '1.5.1'
+consul_app_checksum: sha256:58fbf392965b629db0d08984ec2bd43a5cb4c7cc7ba059f2494ec37c32fdcb91
+
+consul_app_name: '{{consul_app}}_{{consul_app_version}}_{{consul_app_platform}}'
+consul_app_zip: '{{consul_app_name}}.zip'
+consul_app_url: '{{consul_app_mirror}}/{{consul_app}}/{{consul_app_version}}/{{consul_app_zip}}'
+
+consul_configuration_path: /etc/consul
+
+consul_app_download_location: /tmp/
