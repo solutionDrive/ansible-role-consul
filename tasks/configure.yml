@@ -1,0 +1,32 @@
+---
+- name: "Create folder for holding configuration of consul"
+  file:
+    path: "{{ consul_configuration_path }}"
+    state: directory
+    mode: "u=rwx,g=rwx,o=rx"
+
+- name: "Create configuration file based on template"
+  template:
+    src: consul_config.hcl.j2
+    dest: "{{ consul_configuration_path }}/config.hcl"
+    mode: "u=rwx,g=rwx,o=r"
+  notify:
+    - restart consul
+
+- name: "create service for consul"
+  template:
+    src: consul.service.j2
+    dest: /lib/systemd/system/consul.service
+    mode: 0644
+  register: service_restart
+  notify:
+    - restart consul
+
+- name: link service
+  file:
+    src: /lib/systemd/system/consul.service
+    path: /etc/systemd/system/multi-user.target.wants/consul.service
+    state: link
+  notify:
+    - reload systemd daemon
+    - restart consul

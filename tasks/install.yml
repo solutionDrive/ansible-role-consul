@@ -1,0 +1,15 @@
+---
+- name: "Download Zip-Archive for version {{ consul_app_version }}"
+  get_url:
+    url: "{{ consul_app_url }}"
+    dest: "{{ consul_app_download_location }}/{{ consul_app_zip }}"
+    checksum: "{{ consul_app_checksum }}"
+
+- name: "Unzip Consul Archive - {{ consul_app_version }}"
+  unarchive:
+    src: "{{ consul_app_download_location }}/{{ consul_app_zip }}"
+    remote_src: yes
+    dest: "{{ consul_exec_path }}"
+    mode: "u+rwx"
+    owner: "{{ consul_user }}"
+    creates: "{{ consul_exec_path }}/consul"
